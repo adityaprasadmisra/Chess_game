@@ -13,7 +13,7 @@
       "destination": "https://chess-game-brle.onrender.com/ws/:path*"
     },
     {
-      "source": "/((?!api|ws|assets|vite.svg).* )",
+      "source": "/((?!api|ws|assets|vite.svg).*)",
       "destination": "/index.html"
     }
   ]
