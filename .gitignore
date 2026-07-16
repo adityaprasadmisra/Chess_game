@@ -11,8 +11,8 @@ __pycache__/
 *.pyo
 *.pyd
 .Python
-env/
-lib/
+/env/
+/lib/
 lib64/
 parts/
 sdist/
