@@ -38,7 +38,13 @@ export let engine: "postgres" | "pglite" = "postgres"
  * and write real users into a file nobody backs up.
  */
 export async function connect() {
-  const pool = new pg.Pool({ connectionString: DATABASE_URL, max: 10 })
+  const pool = new pg.Pool({
+    connectionString: DATABASE_URL,
+    max: 10,
+    ssl: process.env.NODE_ENV === "production" || DATABASE_URL.includes("sslmode=require")
+      ? { rejectUnauthorized: false }
+      : undefined
+  })
   try {
     const probe = await pool.connect()
     probe.release()
