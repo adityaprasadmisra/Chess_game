@@ -83,7 +83,9 @@ export function LandingPage() {
               animate="show"
               className="max-w-[52ch] text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
             >
-              Play chess in real-time with friends online, or challenge someone next to you with pass-and-play. Enjoy live WebSocket matchmaking, instant game invites, and legal move highlighting—all running seamlessly in your browser.
+              Sit down across the same screen and play. Full rules, legal moves
+              only, and a board that gets out of your way — no account, no
+              download, nothing to set up.
             </motion.p>
 
             <motion.div
@@ -91,17 +93,12 @@ export function LandingPage() {
               variants={rise}
               initial="hidden"
               animate="show"
-              className="flex flex-col gap-3 sm:flex-row w-full sm:w-auto"
+              className="flex flex-col gap-3 sm:flex-row"
             >
               <Button variant="primary" size="lg" className="group" asChild>
-                <Link to="/friends">
-                  Play Online with Friends
-                  <ArrowRight className="transition-transform group-hover:translate-x-0.5" />
-                </Link>
-              </Button>
-              <Button variant="ghost" size="lg" asChild>
                 <Link to="/play">
-                  Play Locally
+                  Play now
+                  <ArrowRight className="transition-transform group-hover:translate-x-0.5" />
                 </Link>
               </Button>
             </motion.div>
