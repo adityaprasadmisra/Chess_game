@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://your-chess-backend.onrender.com/api/:path*"
+    },
+    {
+      "source": "/ws",
+      "destination": "https://your-chess-backend.onrender.com/ws"
+    },
+    {
+      "source": "/ws/:path*",
+      "destination": "https://your-chess-backend.onrender.com/ws/:path*"
+    },
+    {
+      "source": "/((?!api|ws|assets|vite.svg).* )",
+      "destination": "/index.html"
+    }
+  ]
+}
