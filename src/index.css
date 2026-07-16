@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark-only platform: these are tuned to the #020617 / #0F172A / #111827 stack. */
+    --background: 222 47% 4%; /* #020617 */
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 11%; /* #0F172A */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 142 71% 45%; /* #22C55E */
+    --primary-foreground: 222 47% 4%;
+
+    --secondary: 239 84% 67%; /* #6366F1 */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 142 71% 45%;
+
+    --radius: 24px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-surface-void text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Chess glyphs must never resolve to a colour-emoji font: those paint their
+     own colours and ignore `color`, which makes white and black pieces
+     identical. This stack lists text-symbol fonts only — no Segoe UI Emoji,
+     no Apple Color Emoji, no Noto Color Emoji. Pair with asTextGlyph() (VS15)
+     for platforms whose default stack would still reach for emoji. */
+  .chess-glyph {
+    font-family: "Segoe UI Symbol", "Noto Sans Symbols 2", "Noto Sans Symbols",
+      "DejaVu Sans", "FreeSerif", "Arial Unicode MS", serif;
+    font-variant-emoji: text;
+  }
+
+  /* The house glass recipe from the brief. Used by every card/nav surface so
+     the blur, border and fill stay identical across pages. */
+  .glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
